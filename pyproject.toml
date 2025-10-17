@@ -1,0 +1,18 @@
+[project]
+name = "mohammedamer-github-io"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "celluloid>=0.2.0",
+    "ipywidgets>=8.1.7",
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.4.7",
+    "matplotlib>=3.10.6",
+    "meshio>=5.3.5",
+    "numpy>=2.3.3",
+    "pyvista>=0.46.3",
+    "scipy>=1.16.2",
+    "tqdm>=4.67.1",
+]

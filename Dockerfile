@@ -12,4 +12,20 @@ RUN apt -y install openfoam11
 
 RUN cat /opt/openfoam11/etc/bashrc >> /root/.bashrc
 
+# Download the latest installer
+ADD https://astral.sh/uv/install.sh /uv-installer.sh
+
+# Run the installer then remove it
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+
+# Ensure the installed binary is on the `PATH`
+ENV PATH="/root/.local/bin/:$PATH"
+
+COPY pyproject.toml uv.lock .python-version /app/
+
+WORKDIR /app/
+RUN uv sync --frozen
+
+ENV PATH="/app/.venv/bin:$PATH"
+
 WORKDIR /experiments
