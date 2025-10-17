@@ -1,2 +1,6 @@
-podman build . -t openfoam
-podman run -it -v "./experiments:/experiments" openfoam
+#!/bin/bash
+
+IMG="openfoam"
+
+podman build . -t $IMG
+podman run -it -v "$(realpath .):/app/src" $IMG "$@"

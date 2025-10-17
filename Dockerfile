@@ -32,4 +32,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 RUN uv pip install . --no-deps
 
-WORKDIR /experiments
+WORKDIR /app/src
