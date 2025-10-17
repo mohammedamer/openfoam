@@ -22,10 +22,14 @@ RUN sh /uv-installer.sh && rm /uv-installer.sh
 ENV PATH="/root/.local/bin/:$PATH"
 
 COPY pyproject.toml uv.lock .python-version /app/
+COPY src /app/src
 
 WORKDIR /app/
+
 RUN uv sync --frozen
 
 ENV PATH="/app/.venv/bin:$PATH"
+
+RUN uv pip install . --no-deps
 
 WORKDIR /experiments
