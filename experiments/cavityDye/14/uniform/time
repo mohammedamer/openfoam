@@ -9,50 +9,22 @@ FoamFile
 {
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      controlDict;
+    location    "14/uniform";
+    object      time;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     foamRun;
+beginTime       0;
 
-solver          functions;
+value           14.0000000000006253;
 
-subSolver       incompressibleFluid;
+name            "14";
 
-startFrom       startTime;
-
-startTime       10;
-
-subSolverTime   0;
-
-stopAt          endTime;
-
-endTime         15;
+index           2800;
 
 deltaT          0.005;
 
-writeControl    timeStep;
+deltaT0         0.005;
 
-writeInterval   100;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-functions
-{
-    #includeFunc scalarTransport(C, diffusivity=constant, D = 1e-9)
-}
 
 // ************************************************************************* //

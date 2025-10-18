@@ -20,7 +20,7 @@ regions
 (
     boxToCell
     {
-        box (0.45 0.45 0) (0.55 0.55 0.1);   // small box in the middle (2D mesh: z thickness tiny)
+        box (0.045 0.045 0) (0.055 0.055 0.01);   // small box in the middle (2D mesh: z thickness tiny)
         fieldValues
         (
             volScalarFieldValue C 1

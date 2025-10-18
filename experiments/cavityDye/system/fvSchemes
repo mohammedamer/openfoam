@@ -35,13 +35,13 @@ divSchemes
     div(R)          Gauss linear;
     div(phi,nuTilda) Gauss limitedLinear 1;
     div((nuEff*dev2(T(grad(U))))) Gauss linear;
-    div(phi,C)          Gauss upwind;
+    div(phi,C)      Gauss linearUpwind grad(C);
 }
 
 laplacianSchemes
 {
     default         Gauss linear corrected;
-    laplacian(D,C)      Gauss linear corrected;
+    /* laplacian(D,C)      Gauss linear corrected; */
 }
 
 interpolationSchemes
@@ -54,9 +54,9 @@ snGradSchemes
     default         corrected;
 }
 
-gradSchemes
+/* gradSchemes
 {
     grad(C)             Gauss linear;
-}
+} */
 
 // ************************************************************************* //
