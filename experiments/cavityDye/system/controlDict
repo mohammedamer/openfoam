@@ -24,11 +24,11 @@ startFrom       startTime;
 
 startTime       10;
 
-subSolverTime   0;
+subSolverTime   10;
 
 stopAt          endTime;
 
-endTime         15;
+endTime         20;
 
 deltaT          0.005;
 
@@ -52,7 +52,7 @@ runTimeModifiable true;
 
 functions
 {
-    #includeFunc scalarTransport(C, diffusivity=constant, D = 1e-9)
+    #includeFunc scalarTransport(C, diffusivity=constant, D = 0)
 }
 
 // ************************************************************************* //
