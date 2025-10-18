@@ -1,0 +1,7 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| Transport properties
+\*---------------------------------------------------------------------------*/
+transportModel  Newtonian;
+
+nu              nu [0 2 -1 0 0 0 0] 1e-6;     // example: water kinematic viscosity
+D               D  [0 2 -1 0 0 0 0] 1e-9;     // dye molecular diffusivity in water
