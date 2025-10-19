@@ -136,15 +136,29 @@ def plot_quiver(mesh, field, field_type="point", ax=None, cmap="bwr"):
     return ax
 
 
-def animate(vtk_root, plot_fn, gif_path, fps=30):
+def animate(vtk_root, plot_fn, gif_path, fps=30, start=None, end=None):
 
     vtk_files = glob.glob(os.path.join(vtk_root, "*.vtk"))
 
-    def key(file):
+    def get_file_time(file):
         file = Path(file).stem
         return int(file.split("_")[-1])
 
+    def key(file):
+        return get_file_time(file)
+
     vtk_files = sorted(vtk_files, key=key)
+
+    if start is not None:
+
+        if end is None:
+            end = get_file_time(vtk_files[-1])
+
+        def filter_fn(file):
+            time = get_file_time(file)
+            return time >= start and time <= end
+
+        vtk_files = filter(filter_fn, vtk_files)
 
     fig, ax = plt.subplots(1, 1)
 
