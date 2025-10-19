@@ -7,11 +7,12 @@ import ofiz.plot as ofiz
 
 THIS_PATH = Path(os.path.dirname(os.path.realpath(__file__)))
 ROOT = THIS_PATH / ".."
+TEST_DATA = ROOT / "tests/data"
 
 
 def test_plot():
 
-    vtk_path = ROOT / "experiments/cavity/VTK/cavity_2000.vtk"
+    vtk_path = TEST_DATA / "cavity/VTK/cavity_2000.vtk"
 
     mesh = meshio.read(vtk_path)
 
@@ -22,7 +23,7 @@ def test_plot():
 
         tmp_dir = Path(tmp_dir)
 
-        vtk_root = ROOT / "experiments/cavity/VTK"
+        vtk_root = TEST_DATA / "cavity/VTK"
 
         def plot_fn(mesh, ax):
             mesh = ofiz.MeshGraphics(mesh)
@@ -42,7 +43,7 @@ def test_plot():
 
 def test_plot_start():
 
-    vtk_root = ROOT / "experiments/cavityDye/VTK"
+    vtk_root = TEST_DATA / "cavityDye/VTK"
 
     with tempfile.TemporaryDirectory() as tmp_dir:
 

@@ -1,0 +1,29 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| Set an initial blob of dye (C=1 in a small region)
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
+}
+
+defaultFieldValues
+(
+    volScalarFieldValue C 0
+);
+
+regions
+(
+    boxToCell
+    {
+        box (0.045 0.0 0) (0.055 0.1 0.01);   // small box in the middle (2D mesh: z thickness tiny)
+        fieldValues
+        (
+            volScalarFieldValue C 1
+        );
+    }
+);
